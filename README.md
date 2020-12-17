@@ -1,22 +1,19 @@
 # Pandas-Challenge
 
-# Dependencies and Setup
+#Dependencies and Setup
 import pandas as pd
 import csv
 
-# File to Load
+#File to Load
 file_to_load = "Resources/purchase_data.csv"
 
-# Read Purchasing File and store into Pandas data frame
+#Read Purchasing File and store into Pandas data frame
 pymoli_df = pd.read_csv(file_to_load)
 
 
 # ## Player Count
 
 # * Display the total number of players
-# 
-
-# In[4]:
 
 
 total_players = len(pymoli_df["SN"].unique())
@@ -29,18 +26,9 @@ total_players_df
 # ## Purchasing Analysis (Total)
 
 # * Run basic calculations to obtain number of unique items, average price, etc.
-# 
-# 
 # * Create a summary data frame to hold the results
-# 
-# 
 # * Optional: give the displayed data cleaner formatting
-# 
-# 
 # * Display the summary data frame
-# 
-
-# In[123]:
 
 
 total_items = len(pymoli_df["Item ID"].unique())
@@ -67,17 +55,8 @@ purchasing_analysis_df
 # ## Gender Demographics
 
 # * Percentage and Count of Male Players
-# 
-# 
 # * Percentage and Count of Female Players
-# 
-# 
 # * Percentage and Count of Other / Non-Disclosed
-# 
-# 
-# 
-
-# In[135]:
 
 
 total_players = pymoli_df.loc[:, ["SN", "Gender"]]
@@ -98,23 +77,14 @@ gender_demographics_df["Percentage of Players"] = gender_demographics_df["Percen
 gender_demographics_df
 
 
-# 
+
 # ## Purchasing Analysis (Gender)
 
 # * Run basic calculations to obtain purchase count, avg. purchase price, avg. purchase total per person etc. by gender
-# 
-# 
-# 
-# 
-# * Create a summary data frame to hold the results
-# 
-# 
+# * Create a summary data frame to hold the results 
 # * Optional: give the displayed data cleaner formatting
-# 
-# 
 # * Display the summary data frame
 
-# In[137]:
 
 
 p_analysis_df = pymoli_df.loc[:, ["SN", "Gender", "Item ID", "Price"]]
@@ -153,25 +123,11 @@ purchasing_analysis_df
 # ## Age Demographics
 
 # * Establish bins for ages
-# 
-# 
 # * Categorize the existing players using the age bins. Hint: use pd.cut()
-# 
-# 
-# * Calculate the numbers and percentages by age group
-# 
-# 
+# * Calculate the numbers and percentages by age group 
 # * Create a summary data frame to hold the results
-# 
-# 
-# * Optional: round the percentage column to two decimal points
-# 
-# 
+# * Optional: round the percentage column to two decimal points 
 # * Display Age Demographics Table
-# 
-
-# In[138]:
-
 
 
 total_players_df = pymoli_df.loc[:, ["SN", "Age"]]
@@ -185,7 +141,7 @@ group_labels = ["<10", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40
 #Place the data series into a new column inside of the df
 total_players_df["Age Ranges"] = pd.cut(total_players_df["Age"], bins, labels=group_labels)
 
-# Create a GroupBy object based upon "Age Ranges"
+#Create a GroupBy object based upon "Age Ranges"
 age_groups = total_players_df.groupby("Age Ranges")
 
 
@@ -209,20 +165,11 @@ age_demographics_df
 # ## Purchasing Analysis (Age)
 
 # * Bin the purchase_data data frame by age
-# 
-# 
-# * Run basic calculations to obtain purchase count, avg. purchase price, avg. purchase total per person etc. in the table below
-# 
-# 
+# * Run basic calculations to obtain purchase count, avg. purchase price, avg. purchase total per person etc. in the table below 
 # * Create a summary data frame to hold the results
-# 
-# 
 # * Optional: give the displayed data cleaner formatting
-# 
-# 
 # * Display the summary data frame
 
-# In[139]:
 
 
 
@@ -233,7 +180,7 @@ group_labels = ["<10", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40
 #Place the data series into a new column inside of the df
 pymoli_df["Age Ranges"] = pd.cut(pymoli_df["Age"], bins, labels=group_labels)
 
-# Create a GroupBy object based upon "Age Ranges"
+#Create a GroupBy object based upon "Age Ranges"
 age_groups = pymoli_df.groupby("Age Ranges")
 
 
@@ -269,22 +216,10 @@ purchasing_analysis_df
 # ## Top Spenders
 
 # * Run basic calculations to obtain the results in the table below
-# 
-# 
-# * Create a summary data frame to hold the results
-# 
-# 
+# * Create a summary data frame to hold the results 
 # * Sort the total purchase value column in descending order
-# 
-# 
-# * Optional: give the displayed data cleaner formatting
-# 
-# 
+# * Optional: give the displayed data cleaner formatting 
 # * Display a preview of the summary data frame
-# 
-# 
-
-# In[142]:
 
 
 
@@ -320,25 +255,11 @@ sorted_df.head(5)
 # ## Most Popular Items
 
 # * Retrieve the Item ID, Item Name, and Item Price columns
-# 
-# 
 # * Group by Item ID and Item Name. Perform calculations to obtain purchase count, average item price, and total purchase value
-# 
-# 
 # * Create a summary data frame to hold the results
-# 
-# 
 # * Sort the purchase count column in descending order
-# 
-# 
-# * Optional: give the displayed data cleaner formatting
-# 
-# 
+# * Optional: give the displayed data cleaner formatting 
 # * Display a preview of the summary data frame
-# 
-# 
-
-# In[145]:
 
 
 
@@ -372,17 +293,10 @@ sorted_df.head(5)
 
 # ## Most Profitable Items
 
-# * Sort the above table by total purchase value in descending order
-# 
-# 
-# * Optional: give the displayed data cleaner formatting
-# 
-# 
+# * Sort the above table by total purchase value in descending order 
+# * Optional: give the displayed data cleaner formatting 
 # * Display a preview of the data frame
-# 
-# 
 
-# In[146]:
 
 
 #Purchase Count
